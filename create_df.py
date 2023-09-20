@@ -19,6 +19,9 @@ df.loc[595:, 'month'] = 'октябрь'
 
     #Запись полученной таблицы в БД
 engine = create_engine('sqlite:///data.db')
-df.to_sql('profit', engine, index=False)
+try:
+    df.to_sql('profit', engine, index=False)
+except:
+    pass
 
 print('End!')
